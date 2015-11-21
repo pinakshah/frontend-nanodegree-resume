@@ -11,7 +11,7 @@ var bio = {
 		email: "pinakshah33@gmail.com",
 		github: "pinakshah",
 		twitter: "@pinakshah",
-		location: "India",
+		location: "Ahmedabad",
 	},
 	welcomeMessage: "Thank you for taking time to visit my profile.",
 	skills: [
@@ -19,47 +19,44 @@ var bio = {
 	],
 	biopic: "images/me.jpg",
 	display: function (){
+		// Name & Role
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		$("#header").prepend(formattedRole).prepend(formattedName);
 
+		// Contact Information
+		var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile);
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		//$('#topContacts').append(formattedContact);
+		$('#topContacts').append(formattedMobile);
+		$('#topContacts').append(formattedEmail);
+		$('#topContacts').append(formattedTwitter);
+		$('#topContacts').append(formattedGithub);
+		$('#topContacts').append(formattedLocation);
+
+		// bio pic
+		var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+		$("#header").append(formattedBioPic);
+
+		// Welcome message
+		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$("#header").append(formattedWelcomeMsg);
+
+		// Skills
+		if(bio.skills.length > 0){
+			$("#header").append(HTMLskillsStart);
+			var formattedSkill = null;
+			for(var i = 0; i < bio.skills.length; i++) {
+				formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+				$("#skills").append(formattedSkill);
+			}
+		}
 	}
 }
-
-// Name & Role
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRole).prepend(formattedName);
-
-// Contact Information
-var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-//$('#topContacts').append(formattedContact);
-$('#topContacts').append(formattedMobile);
-$('#topContacts').append(formattedEmail);
-$('#topContacts').append(formattedTwitter);
-$('#topContacts').append(formattedGithub);
-$('#topContacts').append(formattedLocation);
-
-// bio pic
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-$("#header").append(formattedBioPic);
-
-// Welcome message
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedWelcomeMsg);
-
-// Skills
-if(bio.skills.length > 0){
-	$("#header").append(HTMLskillsStart);
-	var formattedSkill = null;
-	for(var i = 0; i < bio.skills.length; i++) {
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
-		$("#skills").append(formattedSkill);
-	}
-}
-
 
 var work = {
 	"jobs": [
@@ -71,7 +68,7 @@ var work = {
 				"lead for the projects based on the Java and Liferay, Manage " +
 			 	"multiple projects with different team members, Client " +
 			 	"communication, Requirements Analysis and Gathering from the customers.",
-			"location" : "Ahmedabad, GJ, India"
+			"location" : "Ahmedabad, Gujarat"
 		},
 		{
 			"employer": "Pollux Softech Pvt. Ltd.",
@@ -81,7 +78,7 @@ var work = {
 				"for the development of the project. We have to work on the " +
 				"project from understanding of the requirements to development " +
 				"and delivery of project and support of the project.",
-			"location" : "Ahmedabad, GJ, India"
+			"location" : "Ahmedabad, Gujarat"
 		}
 	],
 	display: function (){
@@ -102,14 +99,17 @@ var work = {
 	}
 };
 
-work.display();
-
 var projects = {
 	"projects": [
 		{
 			"title": "OASIS Service Order Management System",
 			"dates": "Febuary 2014 - Future",
-			"description": "The OASIS Service Order Management system is intended to manage and process customer service orders. The system will be used by customers to submit service order to Home Health Advantage and used by Home Health Advantage personnel to process the requests and generate the service deliverable – an electronic report provided to the customers in the PDF format. Once the service request is placed by the customer will be managed by the admin and manager and it will be assigned to Reviewers to review the service request based on the service request type and generate the report for the customer. To generate the report calculation the PPS calculator is integrated with the portal to do calculation on report as well as the manual calculation. Portal also includes the message board, calendar and chat features which are available to the employee and contractor of the Home Health Advantage. It allows you to schedule your emails and payment reminders including your customize email text as per your requirement."
+			"description": "The OASIS Service Order Management system is intended to manage and process customer service orders. The system will be used by customers to submit service order to Home Health Advantage and used by Home Health Advantage personnel to process the requests and generate the service deliverable – an electronic report provided to the customers in the PDF format. Once the service request is placed by the customer will be managed by the admin and manager and it will be assigned to Reviewers to review the service request based on the service request type and generate the report for the customer. To generate the report calculation the PPS calculator is integrated with the portal to do calculation on report as well as the manual calculation. Portal also includes the message board, calendar and chat features which are available to the employee and contractor of the Home Health Advantage. It allows you to schedule your emails and payment reminders including your customize email text as per your requirement.",
+			"images": [
+				"http://www.homehealthadv.com/wp-content/uploads/2014/08/HHAPortal-300x237.jpg",
+				"http://www.homehealthadv.com/wp-content/uploads/2014/08/iStock_000001419825XSmall.ashx_-300x225.jpeg",
+				"http://www.homehealthadv.com/wp-content/uploads/2014/08/medical-chart.png"
+			]
 		},
 		{
 			"title": "Web Development for a start-up (Private)",
@@ -138,11 +138,16 @@ var projects = {
 			var formattedDates = HTMLprojectDates .replace("%data%", projects.projects[projectIndx]["dates"]);
 			var formattedDesc = HTMLprojectDescription .replace("%data%", projects.projects[projectIndx]["description"]);
 			$(lastProjectEntry).append(formattedDates).append(formattedDesc);
+			// Add project images
+			if(projects.projects[projectIndx]["images"]){
+				for(var imgIndx = 0; imgIndx < projects.projects[projectIndx]["images"].length; imgIndx++){
+					var formattedImage = HTMLprojectImage .replace("%data%", projects.projects[projectIndx]["images"][imgIndx]);
+					$(lastProjectEntry).append(formattedImage);
+				}
+			}
 		}
 	}
 }
-
-projects.display();
 
 var education = {
 	"schools": [
@@ -172,6 +177,22 @@ $("#education").append(HTMLschoolStart);
 var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
 $("#education").find('.education-entry').append(formattedSchoolName);
 
+// Display bio content
+bio.display();
+// Display work on content
+work.display();
+// Display project on content
+projects.display();
+
+// Add google map
+$("#mapDiv").append(googleMap);
+
+$(document).click(function(loc) {
+	// your code goes here
+	logClicks(loc.clientX, loc.clientY);
+	logClicks(loc.pageX, loc.pageY);
+});
+
 /*function inName() {
 	var name = $('#name').text();
 	var inName = '';
@@ -182,9 +203,3 @@ $("#education").find('.education-entry').append(formattedSchoolName);
 	return  inName;
 }
 $("#main").append(internationalizeButton);*/
-
-/*$(document).click(function(loc) {
-	// your code goes here
-	logClicks(loc.clientX, loc.clientY);
-	logClicks(loc.pageX, loc.pageY);
-});*/
