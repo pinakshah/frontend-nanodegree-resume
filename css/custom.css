@@ -1,0 +1,44 @@
+#header,
+#footerContacts {
+  background-color: #373b58;
+  color: #fff;
+}
+
+#header.fixed {
+  margin: 0 2.5%;
+  padding: 0.5% 5%;
+  position: fixed;
+  top: 0;
+  width: 85%;
+  z-index: 9999;
+}
+
+#header.fixed h1 {
+  font-size: 28px;
+  line-height: 30px;
+}
+
+#header.fixed #topContacts {
+  padding: 2px 10px;
+}
+
+#header.fixed img,
+#header.fixed .welcome-message,
+#header.fixed #skills-h3,
+#header.fixed #skills {
+  display: none;
+}
+
+#lets-connect h2 {
+  color: #373b58;
+}
+
+#skills {
+  flex-direction: column;
+}
+
+.biopic {
+  border: 2px solid #fff;
+  margin: 10px;
+  padding: 0;
+}

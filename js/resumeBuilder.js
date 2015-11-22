@@ -11,6 +11,7 @@ var bio = {
 		email: "pinakshah33@gmail.com",
 		github: "pinakshah",
 		twitter: "@pinakshah",
+		blog: "blog.pinakshah.com",
 		location: "Ahmedabad",
 	},
 	welcomeMessage: "Thank you for taking time to visit my profile.",
@@ -33,8 +34,9 @@ var bio = {
 		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 		$(contacts).append(formattedTwitter).append(formattedGithub);
 		// Contact Information - Location
+		var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
 		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-		$(contacts).append(formattedLocation);
+		$(contacts).append(formattedBlog).append(formattedLocation);
 		// bio pic
 		var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 		$("#header").append(formattedBioPic);
@@ -179,7 +181,7 @@ var education = {
 	"schools": [
 		{
 			"name": "Charotar Instittue of Technology",
-			"city": "Changa",
+			"location": "Changa, Anand, Gujarat",
 			"degree": "Bachelors",
 			"majors": ["CE"],
 			"dates": 2008,
@@ -207,7 +209,7 @@ var education = {
 			// Add dates, location, major
 			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[index].dates);
 			$(lastEducationEntry).append(formattedDates);
-			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[index].city);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[index].location);
 			$(lastEducationEntry).append(formattedLocation);
 			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[index].majors);
 			$(lastEducationEntry).append(formattedMajor);
@@ -242,7 +244,18 @@ education.display();
 // Add google map
 $("#mapDiv").append(googleMap);
 
-/*function inName() {
+// Check for scrolling index and fix header
+$(window).scroll(function(e) {
+	var winTop = jQuery(window).scrollTop();
+	if(winTop > 240) {
+		$("#header").addClass('fixed');
+	}else{
+		$("#header").removeClass('fixed');
+	}
+});
+
+/*
+function inName() {
 	var name = $('#name').text();
 	var inName = '';
 	inName += name.slice(0,1).toUpperCase();
@@ -251,4 +264,5 @@ $("#mapDiv").append(googleMap);
 	inName += name.slice(name.indexOf(" ") + 1).toUpperCase();
 	return  inName;
 }
-$("#main").append(internationalizeButton);*/
+$("#main").append(internationalizeButton);
+*/
